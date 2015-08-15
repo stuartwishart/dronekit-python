@@ -754,7 +754,11 @@ class Parameters(HasObservers):
         vehicle.parameters['THR_MIN']=100
         vehicle.flush()
 
-    .. note:: 
+        # load vehicle parameters from a file
+        vehicle.parameters.load('filename')
+        vehicle.flush()
+
+    .. note::
 
         At time of writing ``Parameters`` does not implement the observer methods, and change notification for parameters
         is not supported.
@@ -764,6 +768,12 @@ class Parameters(HasObservers):
         Check to see if observers have been implemented and if so, update the information here, in about, and in Vehicle class:
         https://github.com/diydrones/dronekit-python/issues/107
     """
+
+    def load(self, filename):
+        """
+        load vehicle parameters from a file
+        """
+        pass
 
 class Command(mavutil.mavlink.MAVLink_mission_item_message):
     """

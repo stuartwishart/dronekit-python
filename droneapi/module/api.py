@@ -32,6 +32,10 @@ class MPParameters(Parameters):
         self.wait_valid()
         self.__module.mpstate.functions.param_set(name, value)
 
+    def load(self, filename):
+        self.wait_valid()
+        self.__module.mav_param.load(filename)
+
     def wait_valid(self):
         '''Block the calling thread until parameters have been downloaded'''
         # FIXME this is a super crufty spin-wait, also we should give the user the option of specifying a timeout
